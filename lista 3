@@ -1,0 +1,224 @@
+Sub Questão_1()
+
+pri = 1
+seg = 1
+fato = 0
+pri2 = 1
+seg2 = 1
+fato2 = 0
+a = 1
+
+While a = 1
+
+    n = InputBox("Digite o número a ser calculado o fatorial")
+    If n = 1 Then
+        MsgBox "Fatoria igual a " & 1 & Chr(13) & "Proximo fatorial será igual a " & 2
+        GoTo gambi
+    ElseIf n = 2 Then
+        MsgBox "Fatoria igual a " & 2 & Chr(13) & "Proximo fatorial será igual a " & 6
+        GoTo gambi
+    ElseIf n = 0 Then
+        MsgBox "Fatoria igual a " & 1 & Chr(13) & "Proximo fatorial será igual a " & 1
+        GoTo gambi
+    End If
+    For i = 1 To n - 1
+        fato = pri * (i + 1)
+        pri = fato
+    Next
+    For q = 1 To n
+        fato2 = pri2 * (q + 1)
+        pri2 = fato2
+    Next
+    MsgBox "Fatoria igual a " & fato & Chr(13) & "Proximo fatorial será igual a " & fato2
+gambi:
+    perg = MsgBox("Deseja realizar o cálculo novamente?", 4)
+    If perg = 7 Then
+        a = 0
+    Else
+        pri = 1
+        seg = 1
+        fato = 0
+        pri2 = 1
+        fato2 = 0
+    End If
+Wend
+ 
+End Sub
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_2()
+
+Dim medidas(), media, somaerro, desvio As Double
+
+
+n = InputBox("Digite a quantidade de medidas obtidas.")
+totalmedidas = 0
+somaerro = 0
+
+
+ReDim medidas(n)
+
+For i = 1 To n
+    medidas(i) = InputBox("Digite os dados obtidos um de cada vez.")
+    totalmedidas = medidas(i) + totalmedidas
+    
+Next
+
+media = totalmedidas / n
+
+For j = 1 To n
+    somaerro = (medidas(j) ^ 2) + somaerro
+Next
+
+nume = somaerro - n * media ^ 2
+deno = n - 1
+desvio = Sqr(nume / deno)
+MsgBox "Media " & media & Chr(13) & "Desvio " & desvio
+ 
+End Sub
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_3()
+
+
+Dim valormeu(), valortabu() As Double
+
+deno = 0
+
+n = InputBox("Quantos elementos estão presentes na mistura?")
+
+ReDim valormeu(n), valortabu(n)
+
+For i = 1 To n
+    valormeu(i) = InputBox("Informe o valor da massa do elemento " & i & " presente na mistura.")
+    valortabu(i) = InputBox("Informe o valor das gramas por mol do mesmo.")
+    deno = (valormeu(i) / valortabu(i)) + deno
+Next
+
+For j = 1 To n
+    res = (valormeu(j) / valortabu(j)) / deno
+    MsgBox "Com os dados obtidos do elemento " & j & " é possível afirmar que sua fração molar é: " & res
+Next
+
+End Sub
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_4()
+
+Dim v1(), v2(), v3(), tv1(), tv2() As Integer
+
+
+MsgBox "Usuario neste algoritmo foi utilizado o conceito de produto entre matriazes, logo, para o funcionamento do programa é necessario que voçê converta o vetor em matriz" & Chr(13) & "NÃO SE PREOCUPE o algoritmo foi pensado para direcioná lo"
+
+    v1L = InputBox("Quantas linhas tem o primeiro vetor?")
+    v1C = InputBox("Quantas colunas tem o primeiro vetor?")
+    v2L = InputBox("Quantas linhas tem o segundo vetor?")
+    v2C = InputBox("Quantas colunas tem o segundo vetor?")
+End If
+ReDim v1(v1L, v1C), v2(v2L, v2C)
+For linha1 = 1 To v1L
+    For coluna1 = 1 To v1C
+        v1(linha1, coluna1) = InputBox("Digite o elemento que está na linha " & linha1 & " coluna " & coluna1 & " do primeiro vetor")
+            
+    Next
+Next
+For linha2 = 1 To v2L
+    For coluna2 = 1 To v2C
+        v2(linha2, coluna2) = InputBox("Digite os elemento que está na linha " & linha2 & " coluna " & coluna2 & " do segundo vetor")
+    Next
+Next
+'CASO 1
+
+If v1C = v2L Then
+    ReDim v3(v1C, v2L)
+    For i = 1 To v1L
+    For j = 1 To v2C
+        soma = 0
+        For k = 1 To v1C
+            soma = soma + v1(i, k) * v2(k, j)
+        Next
+    v3(i, j) = soma
+    Next
+    Next
+    For d = 1 To v1C
+        For e = 1 To v2L
+            Cells(d, e) = v3(d, e)
+        Next
+    Next
+'CASO 2
+ElseIf v1C = v2C Then
+    ReDim v3(v1C, v2C), tv2(v2C, v2L)
+    For linha = 1 To v2L
+        For coluna = 1 To v2C
+            tv2(coluna, linha) = v2(linha, coluna)
+        Next
+    Next
+    For i = 1 To v1L
+        For j = 1 To v2L
+            soma = 0
+            For k = 1 To v2C
+                soma = soma + v1(i, k) * tv2(k, j)
+            Next
+        v3(i, j) = soma
+        Next
+    Next
+    For d = 1 To v1L
+        For e = 1 To v2L
+            Cells(d, e) = v3(d, e)
+        Next
+    Next
+'CASO 3
+ElseIf v1L = v2L Then
+    ReDim v3(v1L, v2L), tv1(v1C, v1L)
+    For linha = 1 To v1L
+        For coluna = 1 To v1C
+            tv1(coluna, linha) = v1(linha, coluna)
+        Next
+    Next
+    For i = 1 To v1C
+        For j = 1 To v2C
+            soma = 0
+            For k = 1 To v1L
+                soma = soma + tv1(i, k) * v2(k, j)
+            Next
+        v3(i, j) = soma
+        Next
+    Next
+    For d = 1 To v1C
+        For e = 1 To v2C
+            Cells(d, e) = v3(d, e)
+        Next
+    Next
+
+'CASO 4
+ElseIf v1L = v2C Then
+    ReDim v3(v1C, v2L), tv1(v1C, v1L), tv2(v2C, v2L)
+    For linha = 1 To v1L
+    For linha1 = 1 To v2L
+        For coluna = 1 To v1C
+        For coluna1 = 1 To v2C
+            tv1(coluna, linha) = v1(linha, coluna)
+            tv2(coluna1, linha1) = v2(linha1, coluna1)
+        Next
+        Next
+    Next
+    Next
+    For i = 1 To v1C
+        For j = 1 To v2L
+            soma = 0
+            For k = 1 To v1L
+                soma = soma + tv1(i, k) * tv2(k, j)
+            Next
+        v3(i, j) = soma
+        Next
+    Next
+    For d = 1 To v1C
+        For e = 1 To v2L
+            Cells(d, e) = v3(d, e)
+        Next
+    Next
+Else
+
+
+    MsgBox "As duas matrizes não podem ser multiplicadas, confesso que tentei, mas mesmo transpondo o primeiro vetor ou o segundo até mesmo os dois não foi possível chegar na condição básica" & Chr(13) & "Número de colunas da matriz da esquerda deve ser igual número de linhas da matriz da direita."
+End If
+
+
+End Sub
