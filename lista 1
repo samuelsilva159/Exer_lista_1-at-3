@@ -1,0 +1,373 @@
+Sub Questão_1_Flux1()
+
+
+
+Dim resp1 As Double
+Dim resp2 As Double
+Dim resp3 As Double
+Dim resp4 As Double
+
+
+
+resp1 = InputBox("O quão bem nos conhecemos?" & vbNewLine & "1- Somos parentes muito próximos" & vbNewLine & "2- Amigos de loga data" & vbNewLine & "3- Vizinhos" & vbNewLine & "4- Te acho bonito" & vbNewLine & "Digite o número correspondente a sua resposta:")
+If resp1 = 3 Or resp1 = 4 Then
+    MsgBox "Não me ligue"
+    GoTo fim
+Else
+    resp2 = InputBox("Você tem algo importante para dizer ou só quer conversar?" & vbNewLine & "1- É importante!" & vbNewLine & "2- Só conversar" & vbNewLine & "Digite o número correspondente a sua resposta:")
+End If
+    If resp2 = 2 Then
+        MsgBox "Não me ligue"
+        GoTo fim
+    Else
+        resp3 = InputBox("Isso pode ser discultido via WhatsApp ou email?" & vbNewLine & "1- Não" & vbNewLine & "2- Acho que sim" & vbNewLine & "Digite o número correspondente a sua resposta:")
+    End If
+        If resp3 = 2 Then
+            MsgBox "Não me ligue"
+            GoTo fim
+        Else
+            resp4 = InputBox("1- É uma emergência?" & vbNewLine & "1- Sim" & vbNewLine & "2- Não" & vbNewLine & "Digite o número correspondente a sua resposta:")
+        End If
+            If resp4 = 2 Then
+                MsgBox "Não me ligue"
+                GoTo fim
+            Else
+                MsgBox "Ligue para o 190"
+            End If
+
+
+fim:
+
+
+
+
+
+End Sub
+
+
+Sub Questão_1_Flux2()
+
+
+
+x = MsgBox("Lógica Simples Para Comentários." & vbNewLine & vbNewLine & "O que vai comentar..." & vbNewLine & vbNewLine & "Precisa mesmo dizer isso?", 4)
+
+
+If x = 7 Then
+    MsgBox "Guarde para você!"
+    GoTo fim
+Else
+    x = MsgBox("É útil?", 4)
+End If
+    If x = 7 Then
+        MsgBox "Guarde para você!"
+        GoTo fim
+    Else
+        x = MsgBox("Pode ofender alguém?", 4)
+    End If
+        If x = 6 Then
+            MsgBox "Guarde para você!"
+            GoTo fim
+        Else
+            x = MsgBox("É um palpite?", 4)
+        End If
+            If x = 6 Then
+                MsgBox "Guarde para você!"
+                GoTo fim
+            Else
+                x = MsgBox("Você gostaria de ouvir?", 4)
+            End If
+                If x = 7 Then
+                    MsgBox "Guarde para você!"
+                    GoTo fim
+                Else
+                    MsgBox "Então comente."
+                End If
+                
+fim:
+
+
+
+End Sub
+
+Sub Questão_1_Flux3()
+
+
+MsgBox "FATO OU BOATO!" & vbNewLine & vbNewLine & "Programa criado para você não passar vergonha nas redes sociais!"
+
+x = MsgBox("É absurdo, bizarro ou estranho?", 4)
+
+If x = 6 Then
+    MsgBox "Melhor verificar!"
+    GoTo ponte
+Else
+ponte:
+    x = MsgBox("Tem fonte?", 4)
+End If
+    If x = 7 Then
+        MsgBox "Na duvida, NÃO compartilhe!"
+        GoTo fim
+    Else
+        x = MsgBox("É confiável?", 4)
+    End If
+        If x = 7 Then
+            MsgBox "Na duvida, NÃO compartilhe!"
+            GoTo fim
+        Else
+            x = MsgBox("É noticia é velha?", 4)
+        End If
+            If x = 6 Then
+                MsgBox "Na duvida, NÃO compartilhe!"
+                GoTo fim
+            Else
+                x = MsgBox("Checou tudo?", 4)
+            End If
+                If x = 7 Then
+                    MsgBox "Na duvida, NÃO compartilhe!"
+                    GoTo fim
+                Else
+                    MsgBox "OK pode compartilhar"
+                End If
+                
+    
+fim:
+
+
+End Sub
+
+Sub Questão_1_Flux4()
+
+
+
+MsgBox "Você tem execicios para fazer", vbInformation
+x = MsgBox("Vale ponto?", 4)
+
+If x = 7 Then
+    MsgBox "Então não faça!"
+    GoTo fim
+Else
+    x = MsgBox("É para amanhã?", 4)
+End If
+    If x = 7 Then
+        MsgBox "Então não faça!"
+        GoTo fim
+    Else
+        x = MsgBox("Tem como copiar?", 4)
+    End If
+        If x = 6 Then
+            MsgBox "Então não faça!"
+            GoTo fim
+        Else
+            x = MsgBox("Você precisa dos pontos?", 4)
+        End If
+            If x = 7 Then
+                MsgBox "Então não faça!"
+                GoTo fim
+            Else
+                x = MsgBox("Tem a resposta na internet?", 4)
+            End If
+                If x = 7 Then
+                    y = MsgBox("Alguem pode fazer para você?", 4)
+                    If y = 6 Then
+                        MsgBox "Então não faça!"
+                        GoTo fim
+                    Else
+                        MsgBox "Então faça!"
+                        GoTo fim
+                    End If
+                Else
+                    MsgBox "Então copie!"
+                    GoTo fim
+                    
+                End If
+                
+
+fim:
+
+
+End Sub
+
+Sub Questão_1_Flux5()
+
+MsgBox "SOLUCIONADOR DE PROBLEMAS!", vbInformation
+
+x = MsgBox("A Bagaça funciona?", 4)
+
+If x = 6 Then
+    MsgBox "Nem Rela"
+    MsgBox "Sem Problemas"
+    GoTo fim
+Else
+    x = MsgBox("Você quem quebrou?", 4)
+End If
+    If x = 7 Then
+        x = MsgBox("Alguém pode te culpar?", 4)
+        If x = 7 Then
+            MsgBox "Se deu bem"
+            MsgBox "Sem problemas"
+            GoTo fim
+        Else
+cont:
+            MsgBox "SE FERROU!!"
+x:
+            x = MsgBox("Da para jogar a culpa em alguém?", 4)
+        End If
+            If x = 6 Then
+                MsgBox "Sem problemas"
+                GoTo fim
+            Else
+                MsgBox "SE FERROU!!"
+                GoTo x
+            End If
+    Else
+        MsgBox "Seu Imbecil"
+        x = MsgBox("Alguém sabe que foi você?", 4)
+    End If
+        If x = 7 Then
+            MsgBox "ESCONDA"
+            MsgBox "Sem problemas"
+            GoTo fim
+        Else
+            GoTo cont
+        End If
+
+
+fim:
+
+End Sub
+
+Sub Questão_2()
+
+
+
+n:
+
+MsgBox "Olá caro cliente!" & vbNewLine & "Irei calcular o valor total da sua conta, mas para isso você deverá responder algumas perguntas"
+
+y = MsgBox("Primeiro preciso saber se foi consumido algum Lanche?", 4)
+Z = MsgBox("Foi consumida alguma Bebida?", 4)
+
+If y = 7 And Z = 7 Then
+    MsgBox "Nada foi consumido." & vbNewLine & vbNewLine & "Como diz o ditado ""Não paga mas também não leva"""
+    GoTo fim
+Else
+    If y = 6 And Z = 7 Then
+gambi:
+        
+        x = MsgBox("Você pediu hambúrgueres?", 4)
+        If x = 6 Then
+            nham = InputBox("Poderia digitar o número da quantidade pedida por favor?")
+            GoTo contl1
+        Else
+contl1:
+             x = MsgBox("Você pediu Cheeseburger?", 4)
+        End If
+            If x = 6 Then
+                nche = InputBox("Poderia digitar o número da quantidade pedida por favor?")
+                GoTo contl2
+            Else
+contl2:
+                x = MsgBox("Você pediu Fritas?", 4)
+            End If
+                If x = 6 Then
+                    nfri = InputBox("Poderia digitar o número da quantidade pedida por favor?")
+                    GoTo contl3
+                Else
+contl3:
+                    somalan = (3# * nham) + (2.5 * nche) + (2.5 * nfri)
+                    If y = 6 And Z = 6 Then
+                        GoTo gambi1
+                    End If
+                    MsgBox "Valor total da conta é R$ " & somalan
+                    GoTo nova
+                End If
+    End If
+End If
+                           
+    If y = 7 And Z = 6 Then
+gambi1:
+        x = MsgBox("Você pediu Refrigerante?", 4)
+        If x = 6 Then
+            nref = InputBox("Poderia digitar o número da quantidade pedida por favor?")
+            GoTo contb1
+        Else
+contb1:
+            x = MsgBox("Você pediu Milkshake?", 4)
+        End If
+            If x = 6 Then
+                nmil = InputBox("Poderia digitar o número da quantidade pedida por favor?")
+                GoTo contb2
+            Else
+contb2:
+                somabeb = (nref) + (3# * nmil)
+                If y = 6 And Z = 6 Then
+                    GoTo gambi2
+                End If
+                MsgBox "Valor total da conta é R$ " & somabeb
+                GoTo nova
+            End If
+    End If
+    If y = 6 And Z = 6 Then
+        GoTo gambi
+gambi2:
+        Total = somabeb + somalan
+        MsgBox "Valor total da conta é R$ " & Total
+        GoTo nova
+    End If
+nova:
+
+n = MsgBox("Deseja realizar novamente calcular de sua conta?", 4)
+If n = 6 Then
+    GoTo n
+Else
+    GoTo fim
+End If
+fim:
+
+End Sub
+
+Sub Questão_3()
+
+Dim a As Double
+Dim b As Double
+Dim c As Double
+vezes = 0
+vezesE = 0
+inicio:
+
+MsgBox "Para o funcionamento do programa é necessário que o coeficiente ""a"" seja diferente de 0, caso a=0 o programa será interrompido.", vbInformation
+a = InputBox("Digite o Coeficiente a:")
+If a = 0 Then
+    vezesE = vezesE + 1
+    MsgBox "ERRO:" & vbNewLine & vbNewLine & "Essa é uma função linear resolva em outro programa." & vbNewLine & vbNewLine & "rodou o progrma: " & vezes & " vezes." & vbNewLine & vbNewLine & "Valores inadequados para ""a"": " & vezesE & " vezes.", vbCritical
+    
+    GoTo maisuma
+End If
+b = InputBox("Digite o Coeficiente b:")
+c = InputBox("Digite o Coeficiente c:")
+
+Delta = b ^ 2 - 4 * a * c
+
+If Delta < 0 Then
+    vezes = vezes + 1
+    MsgBox "A equação não possui valores reais" & vbNewLine & vbNewLine & "Rodou o progrma: " & vezes & " vezes." & vbNewLine & vbNewLine & "Valores inadequados para ""a"": " & vezesE & " vezes.", vbInformation
+    GoTo maisuma
+ElseIf Delta = 0 Then
+    y = (-b) / (2 * a)
+    vezes = vezes + 1
+    MsgBox "Resultado: " & y & vbNewLine & vbNewLine & "Rodou o progrma: " & vezes & " vezes." & vbNewLine & vbNewLine & "Valores inadequados para ""a"": " & vezesE & " vezes.", vbInformation
+    GoTo maisuma
+   
+ElseIf Delta > 0 Then
+    x1 = ((-b) + Sqr(Delta)) / (2 * a)
+    x2 = ((-b) - Sqr(Delta)) / (2 * a)
+    vezes = vezes + 1
+    MsgBox " Resuldos são:" & vbNewLine & vbNewLine & " x1 = " & x1 & vbNewLine & " x2 = " & x2 & vbNewLine & vbNewLine & "Rodou o progrma: " & vezes & " vezes." & vbNewLine & vbNewLine & "Valores inadequados para ""a"": " & vezesE & " vezes.", vbInformation
+                                                                 
+End If
+maisuma:
+x = MsgBox("Gostaria de fazer mais um cálculo?", 4)
+If x = 6 Then
+    GoTo inicio
+End If
+    
+End Sub
