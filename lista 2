@@ -1,0 +1,246 @@
+Sub Questão_1()
+
+Dim ndados As Integer
+
+ndados = WorksheetFunction.CountA(Planilha1.Range("A:A"))
+ndados = ndados - 1
+
+gru1 = 0
+gru2 = 0
+gru3 = 0
+gru4 = 0
+ffaixa = 0
+i = 1
+lin = 2
+For i = 1 To ndados
+
+    x = Cells(lin, 1)
+    lin = lin + 1
+    If x >= 38 And x <= 55 Then
+        gru1 = gru1 + 1
+    ElseIf x >= 55 And x <= 65 Then
+        gru2 = gru2 + 1
+    ElseIf x >= 69 And x <= 85 Then
+        gru3 = gru3 + 1
+    ElseIf x >= 89 Then
+        gru4 = gru4 + 1
+    Else
+        ffaixa = ffaixa + 1
+    End If
+    
+Next
+
+MsgBox ("Número de pessoas com:" & Chr(13) & Chr(13) & "Entre 38kg até 55kg: " & gru1 & Chr(13) & "Entre 55kg até 65kg: " & gru2 & Chr(13) & "Entre 68kg até 85kg: " & gru3 & Chr(13) & "Mais de 89kg: " & gru4 & Chr(13) & "Fora da faixa: " & ffaixa)
+
+
+
+End Sub
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_2()
+
+conta = 0
+n = InputBox("Digite o número de vezes que deseja realizar a serie")
+
+For i = 1 To n
+
+    conta = (3 * i + 1) + conta
+Next
+
+MsgBox "Resultado " & conta
+
+
+End Sub
+
+Sub Questão_3()
+
+Dim n, termo As Integer
+
+ultimo = 1
+
+penultimo = 1
+
+n = InputBox("Escreva um algoritmo N para exibir todos os números da seqüência de Fibonacci até o imediatamente superior a N")
+MsgBox 0
+MsgBox 1
+MsgBox 1
+
+For i = 1 To n
+
+    termo = ultimo + penultimo
+    MsgBox termo
+    If termo > n Then
+        GoTo fim
+    End If
+    penultimo = ultimo
+    ultimo = termo
+              
+Next
+
+
+fim:
+
+
+End Sub
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_4()
+
+Dim n, r, primerio, segundo As Long
+
+
+
+primeiro = 1
+segundo = 2
+
+
+n = InputBox("Digite o número inteiro positivo para saber seu fatorial")
+If n = 0 Or n = 1 Then
+    MsgBox 1
+Else
+
+    For i = 1 To n - 1
+
+
+        r = primeiro * segundo
+        segundo = segundo + 1
+        primeiro = r
+    
+  
+    Next
+    
+    MsgBox r
+    
+End If
+
+
+End Sub
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_5()
+
+'Para realização desse código é necessário que os dados estejam na coluna A e B, a partir da primeira linha
+'DADOS :boi possui uma tarjeta indicando seu número(A) e seu peso(B)
+'Foi assumido cada boi teria um peso diferente
+
+
+Dim x, y, a, b As Integer
+i = 1
+n = InputBox("Digite o número de bois")
+n = n + 1
+For w = 1 To 2
+    For i = 1 To n
+        For q = n To 1 Step -1
+            If Cells(i, 2) > Cells(q, 2) Then
+                x = Cells(i, 2)
+                y = Cells(q, 2)
+                a = Cells(i, 1)
+                b = Cells(q, 1)
+                Cells(i, 2).Value = y
+                Cells(q, 2).Value = x
+                Cells(i, 1).Value = b
+                Cells(q, 1).Value = a
+                
+            End If
+        Next
+        
+    Next
+Next
+
+n = n - 1
+
+MsgBox "Boi mais gordo: " & Cells(n, 1) & " Posição" & " " & Cells(n, 2) & "kg" & Chr(13) & "Boi mais magro: " & Cells(1, 1) & " Posição" & " " & Cells(1, 2) & "kg"
+
+
+End Sub
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_6()
+
+' Primeira série
+
+primeiro = 4
+
+For i = 1 To 10000
+
+    par = 2 * i
+    impar = par + 1
+    If i Mod 2 = 0 Then
+        impar = impar * -1
+    End If
+    Pi_1 = primeiro - (4 / impar)
+    primeiro = Pi_1
+    
+    
+Next
+
+MsgBox "Resultado da primeira série: " & Pi_1
+
+' Segunda série
+
+For i = 0 To 10000
+    Pi_2 = ((-1) ^ i) * (4 / (2 * i + 1)) + Pi_2
+Next
+    
+MsgBox "Resultado da segunda série: " & Pi_2
+
+
+End Sub
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_7()
+
+
+Dim f, g, h As Integer
+
+
+For i = 1 To 18
+
+    h = i - 12
+    
+    If h > 0 Then
+        f = h
+    ElseIf h <= 0 Then
+        f = 2
+    End If
+    
+    If f = 0 Then
+        g = i - 4
+    ElseIf f > 0 Then
+        g = 5 - i
+    End If
+    y = f + g
+    MsgBox "X= " & i & Chr(13) & "Y= " & y
+    
+Next
+        
+End Sub
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Questão_8()
+a = 1
+soma = 0
+produ = 1
+
+
+While a = 1
+    
+    MsgBox "Digite os números na coluna A para ser realizado o Somatório e o Produtório."
+    MsgBox "Celular vazia vai induzir o programa ao erro" & Chr(13) & Chr(13) & "TENHA ATENÇÃO", vbInformation
+    
+    
+    n = Application.WorksheetFunction.CountA(Range("A:A"))
+    For i = 1 To n
+        soma = Cells(i, 1) + soma
+        produ = Cells(i, 1) * produ
+    Next
+    MsgBox "Somatório: " & soma & Chr(13) & Chr(13) & "Produtório " & produ
+    pergun = MsgBox("Deseja realizar os calculos novamente?", 4)
+    If pergun = 7 Then
+        a = 0
+    Else
+        soma = 0
+        produ = 1
+    End If
+    
+    
+Wend
+
+End Sub
